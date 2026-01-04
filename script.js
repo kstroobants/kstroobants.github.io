@@ -185,7 +185,7 @@ document.querySelectorAll('.featured-project').forEach(project => {
                 s.classList.remove('active');
                 sContent.style.maxHeight = '0px';
                 const icon = s.querySelector('.toggle-icon');
-                if (icon) icon.textContent = '›';
+                if (icon) icon.textContent = '▸';
             });
 
             // If the clicked section wasn't active, open it
@@ -194,7 +194,7 @@ document.querySelectorAll('.featured-project').forEach(project => {
                 // Set max-height to actual scrollHeight for smooth animation
                 content.style.maxHeight = content.scrollHeight + 'px';
                 const icon = header.querySelector('.toggle-icon');
-                if (icon) icon.textContent = '∨';
+                if (icon) icon.textContent = '▾';
             }
         });
     });

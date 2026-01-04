@@ -315,98 +315,430 @@
     <section class="projects" id="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
+
+            <!-- Project 1: GenLayer Studio -->
+            <div class="featured-project">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/600x400/2563eb/ffffff?text=GenLayer+Studio" alt="GenLayer Studio">
+                </div>
+                <div class="project-content">
+                    <div class="project-badges">
+                        <span class="project-badge">Open Source</span>
+                        <span class="project-badge team-badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            6
+                        </span>
+                    </div>
                     <div class="project-header">
                         <h3>GenLayer Studio</h3>
-                        <a href="https://github.com/genlayer-labs/genlayer-studio" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        <div class="project-links">
+                            <a href="https://studio.genlayer.com/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Live Demo" title="Live Demo">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/genlayer-labs/genlayer-studio" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub" title="View on GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-sections-accordion">
+                        <div class="project-section-collapsible active">
+                            <button class="section-header">
+                                <h4>Context</h4>
+                                <span class="toggle-icon">∨</span>
+                            </button>
+                            <div class="section-content">
+                                <p>At GenLayer Labs, I led the development of GenLayer Studio, an open-source platform enabling developers to experiment with the GenLayer protocol and prototype decentralized applications.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Role and Contributions</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <p>Technical lead on GenLayer Studio, responsible for backend and SDK development in Python, blockchain integration, and creating a seamless developer experience through testing, documentation, and code reviews.</p>
+                                <ul>
+                                    <li>Developer-facing SDKs and tools for blockchain experimentation</li>
+                                    <li>Backend systems supporting prototyping and testing</li>
+                                    <li>Comprehensive CI/CD pipeline, testing framework, and documentation</li>
+                                    <li>Code review process and architectural decisions</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Key Challenges and Constraints</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <ul>
+                                    <li>Building a platform that balances developer flexibility with protocol constraints</li>
+                                    <li>Creating intuitive abstractions for complex blockchain concepts</li>
+                                    <li>Ensuring seamless integration between frontend, backend, and blockchain layers</li>
+                                    <li>Maintaining comprehensive documentation for rapidly evolving features</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Impact and Outcome</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <p>This project makes my work publicly visible and demonstrates how I structure, document, and maintain production-quality code. It shows my approach to developer experience and long-term maintainability in open-source environments.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Project 2: Cohouse -->
+            <div class="featured-project reverse">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/600x400/0ea5e9/ffffff?text=Cohouse+Django" alt="Cohouse - Django Learning Project">
+                </div>
+                <div class="project-content">
+                    <div class="project-badges">
+                        <span class="project-badge">Learning Project</span>
+                        <span class="project-badge team-badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg>
-                        </a>
+                            1
+                        </span>
                     </div>
-                    <p class="project-description">
-                        A comprehensive platform for developers to experiment with blockchain protocols and prototype
-                        decentralized applications. Features a full development environment, testing tools, and seamless
-                        deployment to the live network.
-                    </p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>FastAPI</span>
-                        <span>Vue.js</span>
-                        <span>Docker</span>
-                        <span>Blockchain</span>
-                        <span>Web3</span>
-                    </div>
-                    <div class="project-stats">
-                        <span>Open Source</span>
-                        <span>Production</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
                     <div class="project-header">
-                        <h3>FPGA Test Bench for Aviation</h3>
+                        <h3>Cohouse — Learning Django by Building a Complete Web Application</h3>
+                        <div class="project-links">
+                            <a href="https://kstroobants.pythonanywhere.com/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Live Demo" title="Live Demo">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/kstroobants/cohouse-django" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub" title="View on GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                    <p class="project-description">
-                        Developed and simulated a DO-254 Design Assurance Level A compliant test bench for DSP and
-                        communication protocols (SPI, ARINC 818, 3G-SDI) operating on Xilinx FPGA for a leading
-                        aviation company.
-                    </p>
-                    <div class="project-tags">
-                        <span>SystemVerilog</span>
-                        <span>VHDL</span>
-                        <span>UVM</span>
-                        <span>DO-254</span>
-                        <span>Safety-Critical</span>
-                    </div>
-                    <div class="project-stats">
-                        <span>NDA Protected</span>
-                        <span>Aviation</span>
-                    </div>
-                </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>CMOS Image Sensor Evaluation Kits</h3>
-                    </div>
-                    <p class="project-description">
-                        Designed and developed evaluation systems and reference designs (hardware and software) for
-                        next-generation CMOS image sensors. Created tools and documentation used by global customers
-                        and distributors.
-                    </p>
-                    <div class="project-tags">
-                        <span>C++</span>
-                        <span>Python</span>
-                        <span>OpenCV</span>
-                        <span>Altium</span>
-                        <span>Image Processing</span>
-                    </div>
-                    <div class="project-stats">
-                        <span>NDA Protected</span>
-                        <span>Semiconductors</span>
-                    </div>
-                </div>
+                    <div class="project-sections-accordion">
+                        <div class="project-section-collapsible active">
+                            <button class="section-header">
+                                <h4>Context</h4>
+                                <span class="toggle-icon">∨</span>
+                            </button>
+                            <div class="section-content">
+                                <p><strong>Note:</strong> This was a deliberate learning exercise to understand Django's architecture and conventions, not a production or commercial application.</p>
+                                <p>I built this project independently to learn the Django web framework from scratch. The goal was to understand Django's architecture, conventions, and trade-offs by building a full end-to-end application without prior Django experience—no LLM-assisted coding, no templates, and no shortcuts.</p>
+                            </div>
+                        </div>
 
-                <div class="project-card">
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Role and Contributions</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <p>Independent developer and architect for the entire project, responsible for all aspects from data modeling to deployment.</p>
+                                <ul>
+                                    <li>Full-stack Django application for shared housing listings</li>
+                                    <li>Room creation, image uploads, and management features</li>
+                                    <li>Multi-criteria search and filtering system</li>
+                                    <li>Clean, user-oriented interface with Bootstrap and JavaScript</li>
+                                    <li>Complete Django stack: models, views, templates, forms, and media handling</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Key Challenges and Constraints</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <ul>
+                                    <li>Started with zero Django experience—learned ORM, request/response lifecycle, and app structure</li>
+                                    <li>Implemented distance-based geospatial search using django.contrib.gis locally</li>
+                                    <li>Made pragmatic trade-offs: removed GIS features from hosted demo due to platform limitations (no PostGIS, sudo access, or sufficient storage)</li>
+                                    <li>Learned framework conventions without shortcuts or AI assistance</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Impact and Outcome</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <p>Demonstrates ability to learn a new backend framework independently, full-stack thinking from data model to UI, comfort building complete applications solo, and pragmatic decision-making under platform constraints. This project demonstrates learning velocity and engineering discipline, not framework loyalty.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Project 3: Aviation -->
+            <div class="featured-project">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/600x400/6c757d/ffffff?text=Aviation+FPGA" alt="Safety-Critical Communication System">
+                </div>
+                <div class="project-content">
+                    <div class="project-badges">
+                        <span class="project-badge">NDA Protected</span>
+                        <span class="project-badge team-badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            8
+                        </span>
+                    </div>
                     <div class="project-header">
-                        <h3>ML Gesture Recognition</h3>
+                        <h3>Safety-Critical Communication System (Aviation)</h3>
                     </div>
-                    <p class="project-description">
-                        Master's thesis project implementing Multi-Class Gaussian Processes for hand gesture recognition
-                        using mmWave radar data. Optimized for reduced computational requirements and increased energy
-                        efficiency.
-                    </p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>TensorFlow</span>
-                        <span>Keras</span>
-                        <span>Machine Learning</span>
+
+                    <div class="project-sections-accordion">
+                        <div class="project-section-collapsible active">
+                            <button class="section-header">
+                                <h4>Context</h4>
+                                <span class="toggle-icon">∨</span>
+                            </button>
+                            <div class="section-content">
+                                <p>Worked as a professional embedded software engineer on a safety-critical system for the aviation industry. The system involved communication protocols implemented and verified on FPGA hardware for a leading aviation company.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Role and Contributions</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <p>Embedded software engineer responsible for verification and testing of safety-critical FPGA systems.</p>
+                                <ul>
+                                    <li>Developed and simulated test benches for communication protocols running on Xilinx FPGA</li>
+                                    <li>Participated in requirement analysis, implementation, and verification</li>
+                                    <li>Conducted rigorous code and requirement reviews</li>
+                                    <li>Designed test benches to catch edge cases and failure modes</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Key Challenges and Constraints</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <ul>
+                                    <li>Design Assurance Level A (DO-254) compliance—zero tolerance for undefined behavior</li>
+                                    <li>Strict documentation and review processes</li>
+                                    <li>Complex interaction between hardware and software components</li>
+                                    <li>Early focus on simulation and verification to reduce late-stage risk</li>
+                                    <li>Prioritized traceability between requirements, implementation, and tests</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Impact and Outcome</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <p>Contributed to achieving quality certification for safety-critical aviation systems. Improved confidence in protocol correctness and system safety while reducing risk during integration phases. Demonstrated ability to work in regulated, safety-critical environments with strong discipline around quality, verification, and documentation.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-stats">
-                        <span>Research</span>
-                        <span>Academic</span>
+
+                </div>
+            </div>
+
+            <!-- Project 4: Semiconductor -->
+            <div class="featured-project reverse">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/600x400/10b981/ffffff?text=CMOS+Sensors" alt="Semiconductor Evaluation Systems">
+                </div>
+                <div class="project-content">
+                    <div class="project-badges">
+                        <span class="project-badge">NDA Protected</span>
+                        <span class="project-badge team-badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            3
+                        </span>
                     </div>
+                    <div class="project-header">
+                        <h3>Semiconductor Evaluation & Reference Systems</h3>
+                    </div>
+
+                    <div class="project-sections-accordion">
+                        <div class="project-section-collapsible active">
+                            <button class="section-header">
+                                <h4>Context</h4>
+                                <span class="toggle-icon">∨</span>
+                            </button>
+                            <div class="section-content">
+                                <p>Worked as a senior solutions engineer on unreleased CMOS image sensor technology for a global semiconductor company, bridging R&D and customer-facing teams.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Role and Contributions</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <p>Senior solutions engineer responsible for developing evaluation systems and supporting global customers.</p>
+                                <ul>
+                                    <li>Developed hardware and software evaluation systems for new sensor technology</li>
+                                    <li>Created reference designs to demonstrate sensor capabilities</li>
+                                    <li>Performed lab measurements and technical analysis</li>
+                                    <li>Supported global customers and internal teams</li>
+                                    <li>Acted as a bridge between customers, FAEs, and R&D teams</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Key Challenges and Constraints</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <ul>
+                                    <li>Worked with unreleased hardware with incomplete documentation</li>
+                                    <li>Addressed diverse use cases from global customer base</li>
+                                    <li>Managed tight timelines tied to product launches</li>
+                                    <li>Designed flexible evaluation platforms adaptable to multiple customers</li>
+                                    <li>Balanced technical depth with usability for non-expert users</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Impact and Outcome</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <p>Increased customer adoption and satisfaction by creating practical, flexible evaluation tools. Contributed customer feedback directly into product roadmaps, influencing future sensor development. Recognized with seniority after two years due to impact and responsibility. Demonstrated end-to-end system thinking and strong communication skills with both technical and non-technical stakeholders.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Project 5: Imec ML -->
+            <div class="featured-project">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/600x400/8b5cf6/ffffff?text=ML+Radar+Research" alt="ML for mmWave Gesture Recognition">
+                </div>
+                <div class="project-content">
+                    <div class="project-badges">
+                        <span class="project-badge">Research</span>
+                        <span class="project-badge team-badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            1
+                        </span>
+                    </div>
+                    <div class="project-header">
+                        <h3>Efficient Machine Learning for mmWave Hand Gesture Recognition</h3>
+                    </div>
+
+                    <div class="project-sections-accordion">
+                        <div class="project-section-collapsible active">
+                            <button class="section-header">
+                                <h4>Context</h4>
+                                <span class="toggle-icon">∨</span>
+                            </button>
+                            <div class="section-content">
+                                <p>As part of a research master's thesis at Imec, a leading semiconductor research center, I investigated machine learning approaches for hand gesture recognition using mmWave radar data, targeting resource-constrained IoT devices where inference speed, model size, and power consumption are critical. Research question: Can alternative machine learning models achieve competitive accuracy with significantly lower computational and energy costs?</p>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Role and Contributions</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <p>Independent researcher responsible for the entire research project, from problem definition to implementation and evaluation.</p>
+                                <ul>
+                                    <li>Built complete ML pipeline starting with MNIST dataset for validation</li>
+                                    <li>Worked with proprietary mmWave hand gesture datasets from Imec</li>
+                                    <li>Implemented Multi-Class Gaussian Processes with scalable libraries</li>
+                                    <li>Evaluated different kernel choices and approximation strategies</li>
+                                    <li>Used CNNs as baseline for performance comparison</li>
+                                    <li>Optimized for training time, inference speed, and parameter count</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Key Challenges and Constraints</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <ul>
+                                    <li>Working with high-dimensional, noisy radar data</li>
+                                    <li>Balancing model accuracy with computational efficiency for edge deployment</li>
+                                    <li>Limited compute and power budgets for target IoT devices</li>
+                                    <li>Designing custom features from raw radar signals</li>
+                                    <li>Working in Linux-based remote compute environments</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-section-collapsible">
+                            <button class="section-header">
+                                <h4>Impact and Outcome</h4>
+                                <span class="toggle-icon">›</span>
+                            </button>
+                            <div class="section-content">
+                                <p>Demonstrated that Gaussian Process models could achieve competitive performance with significantly fewer parameters than CNN-based approaches. Identified critical trade-offs between model expressiveness and computational efficiency. Showed the viability of non-deep-learning approaches for specific embedded ML use cases, providing insights relevant to energy-efficient edge AI systems. Demonstrated ability to work independently on open-ended technical problems and systems-level thinking that balances accuracy against performance constraints.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -418,15 +750,15 @@
             <h2 class="section-title">Education</h2>
             <div class="education-grid">
                 <div class="education-card">
-                    <h3>Master of Science - Electrical Engineering</h3>
-                    <h4>Embedded Systems and Multimedia</h4>
+                    <h3>Master of Science</h3>
+                    <h4>Electrical Engineering: Embedded Systems and Multimedia</h4>
                     <p class="education-institution">KU Leuven</p>
                     <p class="education-date">2017 - 2019 • Leuven, Belgium</p>
                     <p class="education-note">Exchange program at Chalmers University of Technology, Gothenburg, Sweden (2017-2018)</p>
                 </div>
                 <div class="education-card">
-                    <h3>Bachelor of Science - Electrical Engineering</h3>
-                    <h4>Computer Science</h4>
+                    <h3>Bachelor of Science</h3>
+                    <h4>Electrical Engineering and Computer Science</h4>
                     <p class="education-institution">KU Leuven</p>
                     <p class="education-date">2014 - 2017 • Leuven, Belgium</p>
                 </div>

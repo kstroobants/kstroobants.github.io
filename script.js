@@ -162,3 +162,40 @@ if (footer && footer.textContent.includes('2025')) {
 document.querySelectorAll('a[target="_blank"]').forEach(link => {
     link.setAttribute('rel', 'noopener noreferrer');
 });
+
+// Project Sections Accordion Functionality
+document.querySelectorAll('.featured-project').forEach(project => {
+    const sectionHeaders = project.querySelectorAll('.section-header');
+
+    // Initialize max-height for sections that are already active on page load
+    project.querySelectorAll('.project-section-collapsible.active').forEach(activeSection => {
+        const content = activeSection.querySelector('.section-content');
+        content.style.maxHeight = content.scrollHeight + 'px';
+    });
+
+    sectionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const section = header.parentElement;
+            const content = section.querySelector('.section-content');
+            const isActive = section.classList.contains('active');
+
+            // Close all sections in this project (accordion behavior)
+            project.querySelectorAll('.project-section-collapsible').forEach(s => {
+                const sContent = s.querySelector('.section-content');
+                s.classList.remove('active');
+                sContent.style.maxHeight = '0px';
+                const icon = s.querySelector('.toggle-icon');
+                if (icon) icon.textContent = '›';
+            });
+
+            // If the clicked section wasn't active, open it
+            if (!isActive) {
+                section.classList.add('active');
+                // Set max-height to actual scrollHeight for smooth animation
+                content.style.maxHeight = content.scrollHeight + 'px';
+                const icon = header.querySelector('.toggle-icon');
+                if (icon) icon.textContent = '∨';
+            }
+        });
+    });
+});

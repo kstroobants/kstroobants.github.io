@@ -764,9 +764,128 @@ section {
     text-decoration: underline;
 }
 
+/* Recommendations Section */
+.recommendations {
+    background-color: var(--color-bg);
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.recommendation-card {
+    background-color: var(--color-surface);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--color-border);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.recommendation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px var(--color-shadow);
+    border-color: var(--color-primary);
+}
+
+.recommendation-header {
+    display: flex;
+    gap: var(--spacing-xs);
+    align-items: flex-start;
+}
+
+.recommendation-headshot {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.recommendation-info {
+    flex: 1;
+}
+
+.recommendation-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.125rem;
+    line-height: 1.2;
+}
+
+.recommendation-role {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.125rem;
+    line-height: 1.2;
+}
+
+.recommendation-relation {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-style: normal;
+    line-height: 1.2;
+}
+
+.recommendation-text {
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.recommendation-text::before {
+    content: '❝ ';
+    color: var(--color-text-secondary);
+    font-style: normal;
+}
+
+.recommendation-text::after {
+    content: ' ❞';
+    color: var(--color-text-secondary);
+    font-style: normal;
+}
+
+.recommendation-text p {
+    margin-bottom: 0.5rem;
+    display: inline;
+}
+
+.recommendation-text p:last-child {
+    margin-bottom: 0;
+}
+
+.recommendation-project {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    margin-top: auto;
+    padding-top: var(--spacing-xs);
+    text-align: right;
+}
+
+.recommendations-footer {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 2px solid var(--color-border);
+}
+
 /* Education Section */
 .education {
-    background-color: var(--color-bg);
+    background-color: var(--color-surface);
 }
 
 .education-grid {
@@ -1150,6 +1269,10 @@ section {
         font-size: 1.5rem;
     }
 
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+    }
+
     .education-grid {
         grid-template-columns: 1fr;
     }
@@ -1207,6 +1330,16 @@ section {
 
     .project-header h3 {
         font-size: 1.5rem;
+    }
+
+    .recommendation-headshot {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+    }
+
+    .recommendation-name {
+        font-size: 1.125rem;
     }
 }
 

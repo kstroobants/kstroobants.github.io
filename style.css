@@ -1282,8 +1282,20 @@ section {
     }
 
     .contact-icons {
-        gap: var(--spacing-md);
+        gap: var(--spacing-sm);
         flex-wrap: wrap;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+    .contact-icon svg {
+        width: 28px;
+        height: 28px;
     }
 
     section {
@@ -1340,6 +1352,22 @@ section {
 
     .recommendation-name {
         font-size: 1.125rem;
+    }
+
+    .contact-icons {
+        gap: 0.75rem;
+    }
+
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        min-height: 45px;
+    }
+
+    .contact-icon svg {
+        width: 24px;
+        height: 24px;
     }
 }
 

@@ -322,18 +322,14 @@ section {
     padding-right: var(--spacing-md);
 }
 
+/* Hide scrollbar */
 .experience-scroll-container::-webkit-scrollbar {
-    height: 8px;
+    display: none;
 }
 
-.experience-scroll-container::-webkit-scrollbar-track {
-    background: var(--color-border);
-    border-radius: 4px;
-}
-
-.experience-scroll-container::-webkit-scrollbar-thumb {
-    background: var(--color-text-secondary);
-    border-radius: 4px;
+.experience-scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .experience-cards {
@@ -407,23 +403,77 @@ section {
     display: none;
 }
 
+/* Experience Pagination Dots */
+.experience-dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-md);
+}
+
+.experience-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-border);
+    border: 2px solid var(--color-border);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.experience-dot:hover {
+    background-color: var(--color-text-secondary);
+    border-color: var(--color-text-secondary);
+}
+
+.experience-dot.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    width: 12px;
+    height: 12px;
+}
+
 /* Skills Section */
 .skills {
     background-color: var(--color-bg);
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.skills-scroll-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: var(--spacing-md) 0;
+    margin: 0 calc(var(--spacing-md) * -1);
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+}
+
+/* Hide scrollbar */
+.skills-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.skills-scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.skills-cards {
+    display: flex;
     gap: var(--spacing-md);
+    min-width: min-content;
 }
 
 .skill-category {
+    flex: 0 0 315px;
+    width: 315px;
+    height: 315px;
     background-color: var(--color-surface);
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
     border: 2px solid var(--color-border);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
 .skill-category:hover {
@@ -433,9 +483,10 @@ section {
 }
 
 .skill-category h3 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     margin-bottom: var(--spacing-sm);
     color: var(--color-text);
+    line-height: 1.3;
 }
 
 .skill-tags {
@@ -459,6 +510,36 @@ section {
     background-color: var(--color-primary);
     color: white;
     border-color: var(--color-primary);
+}
+
+/* Skills Pagination Dots */
+.skills-dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-md);
+}
+
+.skills-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-border);
+    border: 2px solid var(--color-border);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.skills-dot:hover {
+    background-color: var(--color-text-secondary);
+    border-color: var(--color-text-secondary);
+}
+
+.skills-dot.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    width: 12px;
+    height: 12px;
 }
 
 /* Projects Section */
@@ -1260,6 +1341,12 @@ section {
         padding-right: 0;
     }
 
+    .skills-scroll-container {
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     .modal-content {
         margin: 2vh var(--spacing-sm);
         max-height: 96vh;
@@ -1313,10 +1400,6 @@ section {
     }
 
     .about-highlights {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-grid {
         grid-template-columns: 1fr;
     }
 

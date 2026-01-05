@@ -153,6 +153,303 @@ document.querySelectorAll('a[target="_blank"]').forEach(link => {
     link.setAttribute('rel', 'noopener noreferrer');
 });
 
+// Experience Carousel Pagination
+const experienceScrollContainer = document.querySelector('.experience-scroll-container');
+const experienceCardsContainer = document.querySelector('.experience-cards');
+const experienceDotsContainer = document.querySelector('.experience-dots');
+const allExperienceCards = document.querySelectorAll('.experience-card');
+
+let numberOfDots = 0;
+let currentPage = 0;
+
+function calculatePagination() {
+    if (!experienceScrollContainer || !experienceCardsContainer) return;
+
+    const totalCards = allExperienceCards.length;
+
+    // Get actual dimensions from the DOM
+    const visibleWidth = experienceScrollContainer.clientWidth;
+    const totalScrollWidth = experienceScrollContainer.scrollWidth;
+
+    // If everything fits (no scrolling needed), hide dots
+    if (totalScrollWidth <= visibleWidth) {
+        numberOfDots = 0;
+        return { cardsPerPage: totalCards, numberOfDots };
+    }
+
+    // Get actual computed padding from the element
+    const computedStyle = window.getComputedStyle(experienceScrollContainer);
+    const paddingLeft = parseFloat(computedStyle.paddingLeft) || 0;
+    const paddingRight = parseFloat(computedStyle.paddingRight) || 0;
+    const totalPadding = paddingLeft + paddingRight;
+
+    const cardWidth = 280;
+    const gap = 32;
+
+    // Calculate how many cards fit in the visible area
+    const effectiveVisibleWidth = visibleWidth - totalPadding;
+
+    // Count cards with at least 70% visible (threshold between floor and round)
+    const exactCards = (effectiveVisibleWidth + gap) / (cardWidth + gap);
+    const cardsPerPage = Math.max(1, Math.floor(exactCards + 0.3));
+
+    // Calculate number of pages needed
+    numberOfDots = Math.ceil(totalCards / cardsPerPage);
+
+    return { cardsPerPage, numberOfDots };
+}
+
+function createDots() {
+    if (!experienceDotsContainer) return;
+
+    experienceDotsContainer.innerHTML = '';
+    const { numberOfDots: dots } = calculatePagination();
+
+    // Hide dots if all cards fit (0 dots) or only 1 page needed
+    if (dots === 0 || dots === 1) {
+        experienceDotsContainer.style.display = 'none';
+        return;
+    }
+
+    experienceDotsContainer.style.display = 'flex';
+
+    for (let i = 0; i < dots; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('experience-dot');
+        if (i === 0) dot.classList.add('active');
+
+        dot.addEventListener('click', () => {
+            scrollToPage(i);
+        });
+
+        experienceDotsContainer.appendChild(dot);
+    }
+}
+
+function scrollToPage(pageIndex) {
+    if (!experienceScrollContainer) return;
+
+    const maxScroll = experienceScrollContainer.scrollWidth - experienceScrollContainer.clientWidth;
+    const dots = experienceDotsContainer.querySelectorAll('.experience-dot');
+
+    // Calculate scroll position based on which dot was clicked
+    // Distribute scroll range evenly across dots
+    let scrollAmount;
+
+    if (pageIndex === 0) {
+        scrollAmount = 0;
+    } else if (pageIndex === dots.length - 1) {
+        scrollAmount = maxScroll;
+    } else {
+        scrollAmount = (maxScroll / (dots.length - 1)) * pageIndex;
+    }
+
+    experienceScrollContainer.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+    });
+}
+
+function updateActiveDot() {
+    if (!experienceScrollContainer || !experienceDotsContainer) return;
+
+    const scrollLeft = experienceScrollContainer.scrollLeft;
+    const maxScroll = experienceScrollContainer.scrollWidth - experienceScrollContainer.clientWidth;
+    const dots = experienceDotsContainer.querySelectorAll('.experience-dot');
+
+    if (dots.length <= 1) return;
+
+    // Calculate scroll progress (0 to 1)
+    const scrollProgress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+
+    // Determine which dot should be active based on scroll position
+    // Divide the scroll range into equal segments for each dot
+    if (scrollProgress >= 0.95) {
+        // Near the end, activate last dot
+        currentPage = dots.length - 1;
+    } else if (scrollProgress <= 0.05) {
+        // Near the start, activate first dot
+        currentPage = 0;
+    } else {
+        // In between, calculate based on segments
+        const segmentSize = 1 / (dots.length - 1);
+        currentPage = Math.round(scrollProgress / segmentSize);
+    }
+
+    // Update active dot
+    dots.forEach((dot, index) => {
+        if (index === currentPage) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+// Initialize pagination
+if (experienceScrollContainer) {
+    createDots();
+
+    // Update dots on scroll
+    experienceScrollContainer.addEventListener('scroll', updateActiveDot);
+
+    // Recreate dots on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            createDots();
+            updateActiveDot();
+        }, 250);
+    });
+}
+
+// Skills Carousel Pagination
+const skillsScrollContainer = document.querySelector('.skills-scroll-container');
+const skillsCardsContainer = document.querySelector('.skills-cards');
+const skillsDotsContainer = document.querySelector('.skills-dots');
+const allSkillCards = document.querySelectorAll('.skill-category');
+
+let skillsNumberOfDots = 0;
+let skillsCurrentPage = 0;
+
+function calculateSkillsPagination() {
+    if (!skillsScrollContainer || !skillsCardsContainer) return;
+
+    const totalCards = allSkillCards.length;
+
+    // Get actual dimensions from the DOM
+    const visibleWidth = skillsScrollContainer.clientWidth;
+    const totalScrollWidth = skillsScrollContainer.scrollWidth;
+
+    // If everything fits (no scrolling needed), hide dots
+    if (totalScrollWidth <= visibleWidth) {
+        skillsNumberOfDots = 0;
+        return { cardsPerPage: totalCards, numberOfDots: skillsNumberOfDots };
+    }
+
+    // Get actual computed padding from the element
+    const computedStyle = window.getComputedStyle(skillsScrollContainer);
+    const paddingLeft = parseFloat(computedStyle.paddingLeft) || 0;
+    const paddingRight = parseFloat(computedStyle.paddingRight) || 0;
+    const totalPadding = paddingLeft + paddingRight;
+
+    const cardWidth = 315; // Square skill cards
+    const gap = 32;
+
+    // Calculate how many cards fit in the visible area
+    const effectiveVisibleWidth = visibleWidth - totalPadding;
+
+    // Count cards with at least 70% visible (threshold between floor and round)
+    const exactCards = (effectiveVisibleWidth + gap) / (cardWidth + gap);
+    const cardsPerPage = Math.max(1, Math.floor(exactCards + 0.3));
+
+    // Calculate number of pages needed
+    skillsNumberOfDots = Math.ceil(totalCards / cardsPerPage);
+
+    return { cardsPerPage, numberOfDots: skillsNumberOfDots };
+}
+
+function createSkillsDots() {
+    if (!skillsDotsContainer) return;
+
+    skillsDotsContainer.innerHTML = '';
+    const { numberOfDots: dots } = calculateSkillsPagination();
+
+    // Hide dots if all cards fit (0 dots) or only 1 page needed
+    if (dots === 0 || dots === 1) {
+        skillsDotsContainer.style.display = 'none';
+        return;
+    }
+
+    skillsDotsContainer.style.display = 'flex';
+
+    for (let i = 0; i < dots; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('skills-dot');
+        if (i === 0) dot.classList.add('active');
+
+        dot.addEventListener('click', () => {
+            scrollSkillsToPage(i);
+        });
+
+        skillsDotsContainer.appendChild(dot);
+    }
+}
+
+function scrollSkillsToPage(pageIndex) {
+    if (!skillsScrollContainer) return;
+
+    const maxScroll = skillsScrollContainer.scrollWidth - skillsScrollContainer.clientWidth;
+    const dots = skillsDotsContainer.querySelectorAll('.skills-dot');
+
+    // Calculate scroll position based on which dot was clicked
+    let scrollAmount;
+
+    if (pageIndex === 0) {
+        scrollAmount = 0;
+    } else if (pageIndex === dots.length - 1) {
+        scrollAmount = maxScroll;
+    } else {
+        scrollAmount = (maxScroll / (dots.length - 1)) * pageIndex;
+    }
+
+    skillsScrollContainer.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+    });
+}
+
+function updateSkillsActiveDot() {
+    if (!skillsScrollContainer || !skillsDotsContainer) return;
+
+    const scrollLeft = skillsScrollContainer.scrollLeft;
+    const maxScroll = skillsScrollContainer.scrollWidth - skillsScrollContainer.clientWidth;
+    const dots = skillsDotsContainer.querySelectorAll('.skills-dot');
+
+    if (dots.length <= 1) return;
+
+    // Calculate scroll progress (0 to 1)
+    const scrollProgress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+
+    // Determine which dot should be active based on scroll position
+    if (scrollProgress >= 0.95) {
+        skillsCurrentPage = dots.length - 1;
+    } else if (scrollProgress <= 0.05) {
+        skillsCurrentPage = 0;
+    } else {
+        const segmentSize = 1 / (dots.length - 1);
+        skillsCurrentPage = Math.round(scrollProgress / segmentSize);
+    }
+
+    // Update active dot
+    dots.forEach((dot, index) => {
+        if (index === skillsCurrentPage) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+// Initialize skills pagination
+if (skillsScrollContainer) {
+    createSkillsDots();
+
+    // Update dots on scroll
+    skillsScrollContainer.addEventListener('scroll', updateSkillsActiveDot);
+
+    // Recreate dots on window resize
+    let skillsResizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(skillsResizeTimeout);
+        skillsResizeTimeout = setTimeout(() => {
+            createSkillsDots();
+            updateSkillsActiveDot();
+        }, 250);
+    });
+}
+
 // Project Sections Accordion Functionality
 document.querySelectorAll('.featured-project').forEach(project => {
     const sectionHeaders = project.querySelectorAll('.section-header');

@@ -113,16 +113,6 @@ function openModal(cardElement) {
         modalAchievements.appendChild(li);
     });
 
-    // Populate tags
-    const tags = hiddenData.querySelectorAll('.card-tags span');
-    const modalTags = modal.querySelector('.modal-tags');
-    modalTags.innerHTML = '';
-    tags.forEach(tag => {
-        const span = document.createElement('span');
-        span.textContent = tag.textContent;
-        modalTags.appendChild(span);
-    });
-
     // Show modal
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';

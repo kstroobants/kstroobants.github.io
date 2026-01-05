@@ -1054,22 +1054,6 @@ section {
     font-weight: bold;
 }
 
-.modal-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
-}
-
-.modal-tags span {
-    background-color: var(--color-surface);
-    color: var(--color-text);
-    padding: 0.375rem 0.875rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    border: 1px solid var(--color-border);
-}
-
 /* Footer */
 .footer {
     background-color: var(--color-text);

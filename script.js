@@ -486,3 +486,90 @@ document.querySelectorAll('.featured-project').forEach(project => {
         });
     });
 });
+
+// Dynamic Line Numbers for Hero Section
+function updateHeroLineNumbers() {
+    const lineNumbersContainer = document.getElementById('lineNumbers');
+    const heroTitle = document.querySelector('.hero-title');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    const heroDescription = document.querySelector('.hero-description');
+    const heroCta = document.querySelector('.hero-cta');
+
+    if (!lineNumbersContainer || !heroTitle) return;
+
+    // Helper function to calculate number of lines and get styling
+    function getElementInfo(element) {
+        const computedStyle = window.getComputedStyle(element);
+        const lineHeight = parseFloat(computedStyle.lineHeight);
+        const elementHeight = element.offsetHeight;
+        const marginBottom = parseFloat(computedStyle.marginBottom);
+
+        const lineCount = Math.round(elementHeight / lineHeight);
+
+        return {
+            lineCount,
+            lineHeight,
+            marginBottom
+        };
+    }
+
+    // Get info for each element
+    const titleInfo = getElementInfo(heroTitle);
+    const subtitleInfo = heroSubtitle ? getElementInfo(heroSubtitle) : null;
+    const descriptionInfo = heroDescription ? getElementInfo(heroDescription) : null;
+    const ctaInfo = heroCta ? getElementInfo(heroCta) : null;
+
+    // Generate line numbers with proper heights and spacing
+    lineNumbersContainer.innerHTML = '';
+    let lineNumber = 1;
+
+    // Helper to create line number spans for an element
+    function createLineNumbers(info, isLast = false) {
+        if (!info) return;
+
+        for (let i = 0; i < info.lineCount; i++) {
+            const span = document.createElement('span');
+            span.textContent = lineNumber++;
+            span.style.height = info.lineHeight + 'px';
+            span.style.lineHeight = info.lineHeight + 'px';
+
+            lineNumbersContainer.appendChild(span);
+        }
+    }
+
+    // Helper to create blank line numbers for spacing
+    function createBlankLineNumber(marginBottom, lineHeight) {
+        const span = document.createElement('span');
+        span.textContent = lineNumber++;
+        span.style.height = marginBottom + 'px';
+        span.style.lineHeight = marginBottom + 'px';
+        span.style.display = 'flex';
+        span.style.alignItems = 'center';
+        span.style.justifyContent = 'flex-end';
+        lineNumbersContainer.appendChild(span);
+    }
+
+    // Create line numbers for each element with blank lines between
+    createLineNumbers(titleInfo, false);
+    if (titleInfo && subtitleInfo) {
+        createBlankLineNumber(titleInfo.marginBottom, titleInfo.lineHeight);
+    }
+    createLineNumbers(subtitleInfo, false);
+    if (subtitleInfo && descriptionInfo) {
+        createBlankLineNumber(subtitleInfo.marginBottom, subtitleInfo.lineHeight);
+    }
+    createLineNumbers(descriptionInfo, true);
+}
+
+// Initialize and update on resize
+if (document.getElementById('lineNumbers')) {
+    // Initial calculation after page load
+    window.addEventListener('load', updateHeroLineNumbers);
+
+    // Update on resize with debouncing
+    let heroResizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(heroResizeTimeout);
+        heroResizeTimeout = setTimeout(updateHeroLineNumbers, 100);
+    });
+}

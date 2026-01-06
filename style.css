@@ -1379,6 +1379,7 @@ section {
         padding-top: 100px;
         min-height: auto;
         padding-bottom: var(--spacing-lg);
+        background-attachment: scroll;
     }
 
     .hero-code-container {

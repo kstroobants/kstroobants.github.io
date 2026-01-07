@@ -366,6 +366,21 @@ section {
     color: var(--color-text-secondary);
 }
 
+.about-text p.about-quote {
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.about-quote:first-child::before {
+    content: '❝ ';
+    font-style: normal;
+}
+
+.about-quote:last-child::after {
+    content: ' ❞';
+    font-style: normal;
+}
+
 .about-highlights {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

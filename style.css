@@ -1020,24 +1020,8 @@ section {
     border-color: var(--cyan);
 }
 
-.recommendation-header {
-    display: flex;
-    gap: var(--spacing-xs);
-    align-items: flex-start;
-}
-
-.recommendation-headshot {
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--cyan);
-    box-shadow: 0 2px 8px var(--color-shadow);
-}
-
 .recommendation-info {
-    flex: 1;
+    margin-bottom: var(--spacing-sm);
 }
 
 .recommendation-name {
@@ -1640,12 +1624,6 @@ section {
 
     .project-header h3 {
         font-size: 1.5rem;
-    }
-
-    .recommendation-headshot {
-        width: 60px;
-        height: 60px;
-        min-width: 60px;
     }
 
     .recommendation-name {

@@ -885,17 +885,31 @@ section {
     transition: transform 0.3s ease;
 }
 
+/* Collapse/expand is animated with a single grid track (0fr -> 1fr),
+   so the panel animates to its natural height with no JS measuring.
+   The header stays outside the animated grid and keeps its height. */
 .section-content {
-    max-height: 0;
-    overflow: hidden;
+    display: grid;
+    grid-template-rows: 0fr;
     padding-left: var(--spacing-md);
     padding-right: var(--spacing-md);
-    transition: max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-section-collapsible.active .section-content {
+    grid-template-rows: 1fr;
     padding-top: var(--spacing-sm);
     padding-bottom: var(--spacing-md);
+}
+
+.section-content-inner {
+    overflow: hidden;
+    min-height: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .section-content {
+        transition: grid-template-rows 0.3s ease, padding 0.3s ease;
+    }
 }
 
 .section-content p {

@@ -451,38 +451,32 @@ if (skillsScrollContainer) {
 }
 
 // Project Sections Accordion Functionality
+// Open/close animation is handled entirely by CSS (grid-template-rows);
+// JS only toggles the active class, icon and aria-expanded state
 document.querySelectorAll('.featured-project').forEach(project => {
-    const sectionHeaders = project.querySelectorAll('.section-header');
+    const sections = project.querySelectorAll('.project-section-collapsible');
 
-    // Initialize max-height for sections that are already active on page load
-    project.querySelectorAll('.project-section-collapsible.active').forEach(activeSection => {
-        const content = activeSection.querySelector('.section-content');
-        content.style.maxHeight = content.scrollHeight + 'px';
-    });
+    function setSectionState(section, open) {
+        section.classList.toggle('active', open);
+        const header = section.querySelector('.section-header');
+        if (header) header.setAttribute('aria-expanded', open);
+        const icon = section.querySelector('.toggle-icon');
+        if (icon) icon.textContent = open ? '▾' : '▸';
+    }
 
-    sectionHeaders.forEach(header => {
+    sections.forEach(section => {
+        const header = section.querySelector('.section-header');
+        if (!header) return;
+
+        header.setAttribute('aria-expanded', section.classList.contains('active'));
+
         header.addEventListener('click', () => {
-            const section = header.parentElement;
-            const content = section.querySelector('.section-content');
             const isActive = section.classList.contains('active');
 
-            // Close all sections in this project (accordion behavior)
-            project.querySelectorAll('.project-section-collapsible').forEach(s => {
-                const sContent = s.querySelector('.section-content');
-                s.classList.remove('active');
-                sContent.style.maxHeight = '0px';
-                const icon = s.querySelector('.toggle-icon');
-                if (icon) icon.textContent = '▸';
-            });
-
-            // If the clicked section wasn't active, open it
-            if (!isActive) {
-                section.classList.add('active');
-                // Set max-height to actual scrollHeight for smooth animation
-                content.style.maxHeight = content.scrollHeight + 'px';
-                const icon = header.querySelector('.toggle-icon');
-                if (icon) icon.textContent = '▾';
-            }
+            // Close all sections in this project (accordion behavior),
+            // then open the clicked one if it wasn't already open
+            sections.forEach(s => setSectionState(s, false));
+            if (!isActive) setSectionState(section, true);
         });
     });
 });

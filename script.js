@@ -574,8 +574,10 @@ if (document.getElementById('lineNumbers')) {
     });
 }
 
-// Scroll Reveal - fade sections in once as they enter the viewport
-const revealSections = document.querySelectorAll('section:not(.hero) > .container');
+// Scroll Reveal - fade sections in once as they enter the viewport.
+// Featured projects are tall stacked blocks, so each one is observed
+// on its own and fades in as it scrolls into view.
+const revealTargets = document.querySelectorAll('section:not(.hero) > .container, .featured-project');
 
 if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries) => {
@@ -587,8 +589,24 @@ if ('IntersectionObserver' in window) {
         });
     }, { rootMargin: '0px 0px -10% 0px' });
 
-    revealSections.forEach(section => {
-        section.classList.add('reveal');
-        revealObserver.observe(section);
+    revealTargets.forEach(target => {
+        target.classList.add('reveal');
+        revealObserver.observe(target);
+    });
+
+    // Cards inside these groups rise in sequence, 100ms apart
+    const revealGroupSelectors = [
+        '.about-highlights',
+        '.experience-cards',
+        '.skills-cards',
+        '.recommendations-grid',
+        '.education-grid'
+    ];
+
+    revealGroupSelectors.forEach(selector => {
+        document.querySelectorAll(`${selector} > *`).forEach((item, index) => {
+            item.classList.add('reveal-item');
+            item.style.setProperty('--reveal-delay', `${index * 100}ms`);
+        });
     });
 }

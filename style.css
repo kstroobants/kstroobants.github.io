@@ -1654,11 +1654,30 @@ section {
     .reveal {
         opacity: 0;
         transform: translateY(16px);
-        transition: opacity 0.35s ease, transform 0.35s ease;
+        transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     .reveal.revealed {
         opacity: 1;
         transform: none;
+    }
+
+    /* Staggered cards - animation (not transition) so --reveal-delay
+       never delays the cards' own hover transitions */
+    .reveal .reveal-item {
+        opacity: 0;
+    }
+
+    .reveal.revealed .reveal-item {
+        opacity: 1;
+        animation: reveal-rise 0.5s ease backwards;
+        animation-delay: var(--reveal-delay, 0s);
+    }
+
+    @keyframes reveal-rise {
+        from {
+            opacity: 0;
+            transform: translateY(16px);
+        }
     }
 }

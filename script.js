@@ -573,3 +573,22 @@ if (document.getElementById('lineNumbers')) {
         heroResizeTimeout = setTimeout(updateHeroLineNumbers, 100);
     });
 }
+
+// Scroll Reveal - fade sections in once as they enter the viewport
+const revealSections = document.querySelectorAll('section:not(.hero) > .container');
+
+if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '0px 0px -10% 0px' });
+
+    revealSections.forEach(section => {
+        section.classList.add('reveal');
+        revealObserver.observe(section);
+    });
+}

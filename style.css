@@ -1461,9 +1461,38 @@ a.status-item:hover {
     background-color: rgba(255, 255, 255, 0.12);
 }
 
+/* Shed status items as the screen narrows so the bar stays one line,
+   the same way VS Code hides items in a small window */
 @media (max-width: 768px) {
+    .footer,
+    .status-group {
+        flex-wrap: nowrap;
+    }
+
+    .footer {
+        font-size: 0.75rem;
+    }
+
+    .status-item {
+        padding: 0.3rem 0.4rem;
+    }
+
     .status-optional {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .status-optional-small {
+        display: none;
+    }
+}
+
+/* Below ~363px the hero title's longest word ("Stroobants") no longer
+   fits next to the line numbers and widens the whole page */
+@media (max-width: 380px) {
+    .hero-title {
+        font-size: 2rem;
     }
 }
 

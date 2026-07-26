@@ -607,12 +607,15 @@ const statusLine = document.getElementById('statusLine');
 
 if (statusLine) {
     const EDITOR_LINE_HEIGHT = 24;
+    const narrowScreen = window.matchMedia('(max-width: 480px)');
 
     function updateStatusLine() {
         const line = Math.floor(window.pageYOffset / EDITOR_LINE_HEIGHT) + 1;
-        statusLine.textContent = `Ln ${line}, Col 1`;
+        // Drop ", Col 1" on narrow screens to keep the bar on one line
+        statusLine.textContent = narrowScreen.matches ? `Ln ${line}` : `Ln ${line}, Col 1`;
     }
 
     window.addEventListener('scroll', updateStatusLine, { passive: true });
+    narrowScreen.addEventListener('change', updateStatusLine);
     updateStatusLine();
 }

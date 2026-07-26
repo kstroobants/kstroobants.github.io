@@ -141,13 +141,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Add dynamic year to footer (if needed)
-const currentYear = new Date().getFullYear();
-const footer = document.querySelector('.footer p');
-if (footer && footer.textContent.includes('2025')) {
-    footer.textContent = footer.textContent.replace('2025', currentYear);
-}
-
 // Handle external links
 document.querySelectorAll('a[target="_blank"]').forEach(link => {
     link.setAttribute('rel', 'noopener noreferrer');
@@ -603,4 +596,23 @@ if ('IntersectionObserver' in window) {
             item.style.setProperty('--reveal-delay', `${index * 100}ms`);
         });
     });
+}
+
+// Status Bar - keep the copyright year current
+const copyrightYear = document.getElementById('copyrightYear');
+if (copyrightYear) copyrightYear.textContent = new Date().getFullYear();
+
+// Status Bar - "Ln" indicator follows the scroll position like an editor cursor
+const statusLine = document.getElementById('statusLine');
+
+if (statusLine) {
+    const EDITOR_LINE_HEIGHT = 24;
+
+    function updateStatusLine() {
+        const line = Math.floor(window.pageYOffset / EDITOR_LINE_HEIGHT) + 1;
+        statusLine.textContent = `Ln ${line}, Col 1`;
+    }
+
+    window.addEventListener('scroll', updateStatusLine, { passive: true });
+    updateStatusLine();
 }
